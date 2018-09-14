@@ -67,7 +67,7 @@ export default class Formatter {
             formatted.meta = data.meta;
         }
 
-        _.forOwn(data.attributes, (value, key) => {
+        _.forOwn(data.properties, (value, key) => {
             if (this.shouldIncludeField(data.type, key)) {
                 formatted[key] = value;
             }
@@ -150,7 +150,7 @@ export default class Formatter {
 
     serializeOne (data) {
         let serialized = {
-            attributes: {},
+            properties: {},
             relationships: {}
         };
 
@@ -181,7 +181,7 @@ export default class Formatter {
 
         _.forOwn(data, (value, key) => {
             if (this.shouldIncludeField(serialized.type, key)) {
-                serialized.attributes[key] = value;
+                serialized.properties[key] = value;
             }
         });
 
